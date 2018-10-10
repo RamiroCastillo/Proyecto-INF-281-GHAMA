@@ -1,0 +1,26 @@
+article {
+  background: red;
+  width: 40%;
+  padding: 20px;
+  position: relative;
+}
+article:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  background: url(../images/cursoDestacado__video-bottom.69bd0a99ba.svg) bottom center yellow;
+  background-size: 150%;
+}
+article::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  height: 120px;
+  width: 100%;
+  background: url(../images/s8.jpg) top center red;
+  background-size: 100%;
+}

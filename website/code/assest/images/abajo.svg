@@ -1,0 +1,19 @@
+<svg id="Adorno_" data-name="Adorno " xmlns="http://www.w3.org/2000/svg" width="480" height="35" viewBox="0 0 480 35">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        opacity: 0.06;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="division_copia_4" data-name="division copia 4" class="cls-1" d="M6.533,29L240.342-31.634,474.467,29V-64H6.533V29Z"/>
+  <path id="division_copia_4-2" data-name="division copia 4" class="cls-2" d="M1,16L122.669,1.749,240.5,11,358.177,1.751,480,16V-75H1V16Z"/>
+</svg>

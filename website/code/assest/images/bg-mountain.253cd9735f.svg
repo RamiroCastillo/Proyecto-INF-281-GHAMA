@@ -1,0 +1,59 @@
+<svg id="Montañas" xmlns="http://www.w3.org/2000/svg" width="1212" height="132" viewBox="0 0 1212 132">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3e586b;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #03e8bc;
+      }
+
+      .cls-3 {
+        fill: #374d5e;
+      }
+
+      .cls-4 {
+        fill: #b4b4b4;
+      }
+    </style>
+  </defs>
+  <g id="Grupo_3" data-name="Grupo 3">
+    <path id="Forma_25_copia_15" data-name="Forma 25 copia 15" class="cls-1" d="M361,113.257L441.9,74,538,128.96,407.227,135Z"/>
+    <path id="Forma_25_copia_24" data-name="Forma 25 copia 24" class="cls-1" d="M98,113.257L178.9,74,275,128.96,144.227,135Z"/>
+    <path id="Forma_25_copia_25" data-name="Forma 25 copia 25" class="cls-1" d="M28,133.258L84.333,94,123,135l-52-7Z"/>
+    <path id="Forma_25_copia_16" data-name="Forma 25 copia 16" class="cls-1" d="M315,119.257L395.9,80,492,134.96,361.227,141Z"/>
+    <path id="Forma_25_copia_17" data-name="Forma 25 copia 17" class="cls-1" d="M456,131.257L536.9,92,616,139H507Z"/>
+    <path id="Forma_25_copia_18" data-name="Forma 25 copia 18" class="cls-1" d="M571,129.257L651.9,90,737,139H627Z"/>
+    <path id="Forma_25_copia_20" data-name="Forma 25 copia 20" class="cls-1" d="M726,101.257L806.9,62,903,116.96,772.227,123Z"/>
+    <path id="Forma_25_copia_21" data-name="Forma 25 copia 21" class="cls-1" d="M893,80.257L943.732,41,1004,95.96,921.99,102Z"/>
+    <path id="Forma_25_copia_22" data-name="Forma 25 copia 22" class="cls-1" d="M991,110.257L1041.73,71,1102,125.96,1019.99,132Z"/>
+    <path id="Forma_25_copia_23" data-name="Forma 25 copia 23" class="cls-1" d="M1027,100.258L1077.73,61,1138,115.96,1055.99,122Z"/>
+    <path id="Forma_25_copia_19" data-name="Forma 25 copia 19" class="cls-1" d="M636,120.257L690.388,81,755,135.96,667.079,142Z"/>
+    <g id="Grupo_4" data-name="Grupo 4">
+      <path id="Forma_14" data-name="Forma 14" class="cls-2" d="M900.559,4a6.206,6.206,0,0,1,7.28.46,5.467,5.467,0,0,0,7.012.117c0.626,2.848-.78,6.178-0.25,9.183,0,0-2.826,2.159-7.37-.055-3.434-1.673-5.464-2.207-7.222-.342Z"/>
+      <path id="Rectángulo_2" data-name="Rectángulo 2" class="cls-2" d="M900,3.8h0.81V24H900V3.8Z"/>
+    </g>
+  </g>
+  <path id="Forma_25" data-name="Forma 25" class="cls-3" d="M591,142L724,77l108,62H685Z"/>
+  <path id="Forma_25_copia" data-name="Forma 25 copia" class="cls-3" d="M694.769,137.981L775,86l63,53Z"/>
+  <path id="Montaña" class="cls-3" d="M759,116L901,24l136,115H832Z"/>
+  <path id="Forma_16" data-name="Forma 16" class="cls-4" d="M901,23L854,52l30-9-1,8,12-8,10.56,13.143,3.292-10.964,10.974,4.386-4.389-7.675L929,47Z"/>
+  <path id="Forma_25_copia_11" data-name="Forma 25 copia 11" class="cls-3" d="M853.434,139.127L991,50l105.94,88.408Z"/>
+  <path id="Forma_25_copia_12" data-name="Forma 25 copia 12" class="cls-3" d="M919.614,138.574L1027,69l84.06,70.144Z"/>
+  <path id="Forma_25_copia_13" data-name="Forma 25 copia 13" class="cls-3" d="M1013.9,138.986L1098.59,49l65.74,89.981Z"/>
+  <path id="Forma_25_copia_14" data-name="Forma 25 copia 14" class="cls-3" d="M1088.77,138.681L1149.5,94l47.29,44.814Z"/>
+  <path id="Forma_25_copia_2" data-name="Forma 25 copia 2" class="cls-3" d="M507.205,138.614L556,107l37.685,31.447Z"/>
+  <path id="Forma_25_copia_5" data-name="Forma 25 copia 5" class="cls-3" d="M429.713,138.665L511,86l64.109,53.5Z"/>
+  <path id="Forma_25_copia_3" data-name="Forma 25 copia 3" class="cls-3" d="M389.679,138.321L455,96l52.177,43.541Z"/>
+  <path id="Forma_25_copia_4" data-name="Forma 25 copia 4" class="cls-3" d="M203.91,138.171L340,50l107.186,88.445Z"/>
+  <path id="Forma_25_copia_6" data-name="Forma 25 copia 6" class="cls-3" d="M137,139L295.27,35,419.614,138.83Z"/>
+  <path id="Forma_25_copia_7" data-name="Forma 25 copia 7" class="cls-3" d="M101.826,138.625l107.813-69.9,83.732,69.918Z"/>
+  <path id="Forma_25_copia_8" data-name="Forma 25 copia 8" class="cls-3" d="M33.853,138.758L140.974,69.31l83.744,69.928Z"/>
+  <path id="Forma_25_copia_9" data-name="Forma 25 copia 9" class="cls-3" d="M-0.735,138.794L53.4,103.7l42.218,35.253Z"/>
+  <path id="Fondo_icono_Nigbox" data-name="Fondo icono Nigbox" class="cls-3" d="M606,96l-75,43,75,44,75-44Z"/>
+</svg>

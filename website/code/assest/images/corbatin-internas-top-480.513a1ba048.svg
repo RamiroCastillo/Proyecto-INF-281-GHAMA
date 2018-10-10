@@ -1,0 +1,19 @@
+<svg id="Adorno_hoja_copia" data-name="Adorno hoja copia" xmlns="http://www.w3.org/2000/svg" width="480" height="50" viewBox="0 0 480 50">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        opacity: 0.15;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="division" class="cls-1" d="M5.544,15l234.3,30.634L474.455,15V141H5.544V15Z"/>
+  <path id="division_copia" data-name="division copia" class="cls-2" d="M0,30L239.837,49,480,30V145H0V30Z"/>
+</svg>
