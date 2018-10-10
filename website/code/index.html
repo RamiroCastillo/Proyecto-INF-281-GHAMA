@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta chÑarset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pagina de Inicio</title>
@@ -17,6 +17,236 @@
 </head>
 
 <body>
+    <!--INICIO DE VENTANAS MODALES-->
+    <div class="modal" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModalTitle">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content menuMovil">
+                <ul class="menuPrin">
+                    <li class="menuPrin__item"><a href="#">Inicio</a></li>
+                    <li class="menuPrin__item"><a href="#">Capacitacion</a></li>
+                    <li class="menuPrin__item"><a href="#">Gestor de Recursos</a></li>
+                    <li class="menuPrin__item"><a href="#">Foro</a></li>
+                    <li class="menuPrin__item"><a href="#">Consejos</a></li>
+                </ul>
+                <ul class="menuAcceso">
+                    <li class="menuAcceso__item"><a href="#" class="btn--blancoTransparente js-login" data-dismiss="modal"
+                            data-toggle="modal" data-target="#myModalEntrar">Entrar</a></li>
+                    <li class="menuAcceso__item"><a href="#" class="btn--amarilloClaro js-registro" data-dismiss="modal"
+                            data-toggle="modal" data-target="#myModal">Regístrate</a></li>
+                </ul>
+                <button onclick="cerrar();" class="btn-cerrar" data-dismiss="modal"><i class="fas fa-times"></i><span>Cerrar</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content my-modal-content ">
+                <div class="modal-header my-modal-header">
+
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Crea una cuenta en GHAMA para acceder a
+                        todos los temas.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-user"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control inputS" placeholder="Nombre" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control inputS" placeholder="Apellido" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-envelope"></i></div>
+                                    </div>
+                                    <input type="email" class="form-control inputS" placeholder="Correo Electrónico"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-envelope"></i></div>
+                                    </div>
+                                    <input type="email" class="form-control inputS" placeholder="Confirmar Correo Electrónico"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-lock"></i></div>
+                                    </div>
+                                    <input type="password" class="form-control inputS" placeholder="Contraseña"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-lock"></i></div>
+                                    </div>
+                                    <input type="password" class="form-control inputS" placeholder="Confirmar Contraseña"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-address-card"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control inputS" placeholder="C.I" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-phone"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control inputS" placeholder="Telefono" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-mobile-alt"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control inputS" placeholder="Celular" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-map-marker"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control inputS" placeholder="Direccion" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-user-md"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control inputS" placeholder="Ocupacion" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-calendar-alt"></i></div>
+                                    </div>
+                                    <input type="date" class="form-control inputS" placeholder="Fecha de Nacimiento"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col text-center">
+                                <button class=" btn my-btn" type="submit">Crear cuenta
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <p class="text-center px-5 text">Al crear tu cuenta aceptas nuestros Terminos y
+                                    Condiciones</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-between my-footer">
+                    <span>¿Ya tienes cuenta?</span>
+                    <a href="#" class="btn bgc px-3 " data-toggle="modal" data-target="#myModalEntrar" data-dismiss="modal">Entrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="myModalEntrar" tabindex="-1" role="dialog" aria-labelledby="myModalEntrarLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content my-modal-content ">
+                <div class="modal-header my-modal-header ">
+                    <h5 class="modal-title offset-5" id="myModalEntrarLabel">ENTRAR</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row mx-3">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-envelope"></i></div>
+                                    </div>
+                                    <input type="email" class="form-control inputS" placeholder="Correo Electrónico"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mx-3">
+                            <div class="col">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text inputS"><i class="fas fa-lock"></i></div>
+                                    </div>
+                                    <input type="password" class="form-control inputS" placeholder="Contraseña"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col text-center">
+                                <button class=" btn my-btn" type="submit">Entrar
+                                    <i class="fas fa-chevron-circle-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <p class="text-center px-5 text">¿Olvidaste tu contraseña?</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-between my-footer">
+                    <span>¿No tienes Cuenta ?</span>
+                    <a href="#" class="btn bgc px-3" data-toggle="modal" data-target="#myModal" data-dismiss="modal">Registrate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN DE VENTANAS MODALES-->
     <!--INICIO DE BARRA DE NAVEGACION-->
     <nav class="my-nav w-100 navbar navbar-expand-lg px-5" id="navsticky">
         <a class="navbar-brand" href="#"><img src="assest/images/NuevoLogo.png" alt="Logo GHAMA"></a>
