@@ -567,3 +567,6 @@ a:focus {
 			height: 400px;
 		}
 	}
+	.carousel-item.active {
+		display: flex !important;
+	}

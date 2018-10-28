@@ -1,3 +1,6 @@
+$(document).ready(function () {
+	//saludo();
+	
 	$(window).scroll(function () {
 		if ($(window).scrollTop() > 100) {
 			$("#navsticky").attr("class", "w-100 navbar sticky-top navbar-expand-lg px-5");
@@ -9,6 +12,14 @@
 		}
 	});
 
+	function saludo () {
+		//alert("entro");
+		$.post("./assest/php/mostrar.php", {},
+			function (data) {
+				$("#mensaje").append(data);
+			}
+		);
+	}
 
 	function testAnim(x) {
 		$('.modal .modal-dialog').attr('class', 'modal-dialog  modal-dialog-centered  ' + x + ' animated');
@@ -37,3 +48,5 @@
 		var anim = "rollOut";
 		testAnim(anim);
 	});
+
+});

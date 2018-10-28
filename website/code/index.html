@@ -34,7 +34,7 @@
                     <li class="menuAcceso__item"><a href="#" class="btn--amarilloClaro js-registro" data-dismiss="modal"
                             data-toggle="modal" data-target="#myModal">Regístrate</a></li>
                 </ul>
-                <button onclick="cerrar();" class="btn-cerrar" data-dismiss="modal"><i class="fas fa-times"></i><span>Cerrar</span></button>
+                <button class="btn-cerrar" data-dismiss="modal"><i class="fas fa-times"></i><span>Cerrar</span></button>
             </div>
         </div>
     </div>
@@ -400,13 +400,550 @@
                 </div>
             </div>
         </section>
-        <section class="fondogris">
-            <div class="container">
-                <div class="row justify-content-around">
-                    
+        <section class="carousel slide fondogris d-block d-md-none d-lg-none d-xl-none" data-ride="carousel" id="card-slide">
+            <div class="container carousel-inner">
+                <div class="row justify-content-around" id="filaIni">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 carousel-item active" id="ele1">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 1 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 carousel-item " id="ele2">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 2 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 carousel-item" id="ele3">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 3 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="row justify-content-between ml-1">-->
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 carousel-item" id="ele4">
+                        <div class="card my-cards ">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 4 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4 col-xl-4 carousel-item" id="ele5">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 5 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4 col-xl-4 carousel-item" id="ele5">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 6 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--</div>-->
                 </div>
             </div>
+            <a class="carousel-control-prev" href="#card-slide" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#card-slide" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </section>
+
+        <!-- INICIO DE SLIDE 2-->
+        <section class="carousel slide fondogris d-none d-md-block d-lg-none" data-ride="carousel" id="card-slide2">
+            <div class="container carousel-inner">
+                <div class="row justify-content-around carousel-item active">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 " id="ele1">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 1 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4" id="ele2">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 2 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-around ml-1 carousel-item">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 " id="ele3">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 3 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4" id="ele4">
+                        <div class="card my-cards ">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 4 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-around ml-1 carousel-item">
+                    <div class="col-12  col-md-6 col-lg-4 col-xl-4" id="ele5">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 5 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4 col-xl-4 " id="ele5">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 6 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#card-slide2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#card-slide2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </section>
+        <!--FIN SLIDE 2-->
+
+        <!-- INICIO DE SLIDE 3-->
+        <section class="carousel slide fondogris d-none d-lg-block d-xl-block" data-ride="carousel" id="card-slide2">
+            <div class="container carousel-inner">
+                <div class="row justify-content-around carousel-item active">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 " id="ele1">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 1 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4" id="ele2">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 2 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!---->
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4 " id="ele3">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 3 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-around ml-1 carousel-item">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4" id="ele4">
+                        <div class="card my-cards ">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 4 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12  col-md-6 col-lg-4 col-xl-4" id="ele5">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 5 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6 col-lg-4 col-xl-4 " id="ele5">
+                        <div class="card my-cards">
+                            <img class="card-img-top img-fluid imgc" src="assest/images/html.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Tema de Robos a Casas 6 - Como prevenir robos</h5>
+                                <p class="card-text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/avatar.jpg" alt="Card image cap"
+                                            height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>Ramiro Castillo</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="button" name="button" class="btn-cap">CAPACITATE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#card-slide2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#card-slide2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </section>
+        <!--FIN SLIDE 3-->
+
+
+        <div id="mensaje">
+
+        </div>
+
+
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem qui possimus obcaecati modi voluptatem
+        blanditiis laborum debitis facilis laudantium sunt, excepturi, magnam voluptate perferendis harum molestiae.
+        Saepe omnis soluta quidem velit amet accusantium eaque sunt, porro corrupti ipsum qui eius quia et, fuga quam
+        dolorem non, obcaecati sit. Ad, beatae molestias veritatis expedita magnam a quo laborum rerum animi voluptates
+        quae alias harum fuga quisquam libero eos quod optio nobis. Dicta dolor, commodi excepturi at laboriosam
+        accusantium veniam voluptates eveniet magni, quibusdam ducimus consequuntur cumque facilis ipsa sunt quisquam
+        quae? Vel, voluptatum laborum. Aliquid inventore quidem cum, optio animi reiciendis!
 
     </main>
     <script type="text/javascript" src="assest/js/jquery-3.3.1.min.js"></script>
@@ -414,4 +951,4 @@
     <script type="text/javascript" src="assest/js/main.js"></script>
 </body>
 
-</html> 
+</html>
