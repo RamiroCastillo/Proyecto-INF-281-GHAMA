@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="970" height="35" viewBox="0 0 970 35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Rectángulo_20" data-name="Rectángulo 20" class="cls-1" d="M0-35V35L260,22,485,34,710,22,970,34V-42l61-16H-32Z"/>
+</svg>
