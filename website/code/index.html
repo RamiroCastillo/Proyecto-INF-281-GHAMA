@@ -401,7 +401,8 @@
             </div>
         </section>
         <!--INICIO DE CURSOS-->
-        <section class="carousel slide fondogris d-block d-md-none d-lg-none d-xl-none" data-ride="carousel" id="card-slide">
+        <!--INICIO DE SLIDE 1-->
+        <section class="carousel slide fondogris d-block d-md-none d-lg-none d-xl-none" data-ride="carousel" id="card-slide" data-interval="false">
             <div class="container carousel-inner">
                 <div class="row justify-content-around" id="filaIni">
                     <div class="col-12 col-md-6 col-lg-4 col-xl-4 carousel-item active" id="ele1">
@@ -972,7 +973,7 @@
                 <div class="row g-contenedor justify-content-center">
                     <div class="col-12 l-footer-testimonios">
                         <div id="carouselTestimonios" class="carousel slide customcarrusuel carousel-fade " data-ride="carousel"
-                            data-interval="false">
+                            data-interval="6000">
                             <ol class="carousel-indicators">
                                 <li data-target="#carouselTestimonios" data-slide-to="0" class="active"></li>
                                 <li data-target="#carouselTestimonios" data-slide-to="1"></li>
@@ -991,15 +992,11 @@
                                                 </div>
 
                                                 <div class="col-md-10 col-lg-10 col-xl-10 col-sm-12 col-12">
-                                                    <p class="testimonio__p">"Realmente fue una experiencia excelente,
-                                                        la
-                                                        asesoría por parte del tutor siempre fue presta a resolver
-                                                        inquietudes,
-                                                        las clases fueron mas del tiempo esperado, de verdad que el que
-                                                        quiera
-                                                        aprender y despejar todas sus dudas este es el curso para
-                                                        usted. Lo
-                                                        recomiendo 200%."</p>
+                                                    <p class="testimonio__p">"Realmente fue una experiencia
+                                                        excelente,la asesoría por parte del tutor siempre fue presta a
+                                                        resolver inquietudes,las clases fueron mas del tiempo esperado,
+                                                        de verdad que el quequiera aprender y despejar todas sus dudas
+                                                        este es el curso para usted. Lorecomiendo 200%."</p>
                                                 </div>
 
                                             </div>
@@ -1108,19 +1105,47 @@
             </div>
 
         </section>
-        <!--<section class="fondogris">
-            <div class="row">
-                <div class="col text-center size">
-                    <h1>¿Sabes acerca de la inseguridad Ciudadana?</h1>
-                    <h1>¿Quisieras compartir tu conocimiento?</h1>
-                    <h1>Entonces comparte tu tema ayuda a las personas</h1>
-                    <br><br>
-                    <button type="button" name="button" class="btn-cap">Añade un tema</button>
-                </div>
-            </div>
-        </section>-->
+        <!--footer-->
+
 
     </main>
+    <footer class="g-contenedor-full l-main-contenedorDark2">
+        <div class="container">
+            <div class="row  g-contenedor l-menu-footer l-main-contenedorDark2__triangulo icon-nigbox">
+                <div class="col-12 col-lg-6 col-xl-6 l-footer-novedades l-footer-separador">
+                    <h4 class="tituloFooter">Acerca del sistema</h4>
+                    <p class="parrafoFooter">El sistema proporciona toda la capacitacion necesaria para informar a las
+                        personas de la ciudad de La Paz ante echos delictivos</p>
+                    <br><br>
+                    <h4 class="tituloFooter">Mantente Informado</h4>
+                    <p class="parrafoFooter">Registra tu correo y recibe información sobre nuevos consejos nuevas
+                        tematicas que puedes aprender.</p>
+                    <form action="" name="registroNovedades" method="POST" class="formNovedades">
+                        <div class="formNovedades__campo campo-iconDark icon-envelop5">
+                            <input type="email" name="email__novedades" placeholder="Correo electrónico" class="campo-formDark js-emailNovevades">
+                        </div>
+                        <button class="btn-form--dark icon  js-btnNovedades">Apuntarme
+                            <i class="fas fa-chevron-circle-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-6 text-center colorText spacetop">
+                    <h3 class="spacefooter">¿Sabes acerca de la inseguridad Ciudadana?</h3> <br>
+                    <h3 class="spacefooter">¿Quisieras compartir tu conocimiento?</h3> <br>
+                    <h3 class="spacefooter">Entonces comparte tu tema ayuda a las personas</h3>
+                    <br><br>
+                    <button type="button" name="button" class="btn-cap spacefooter">Añade un tema</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="fondofooter">
+        <div class="row customrow">
+            <div class="col-12 l-footer-copyright text-center">
+                <p>Copyright <span class="copyright">©</span> 2018 Ramiro Castillo, Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
     <script type="text/javascript" src="assest/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assest/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assest/js/main.js"></script>
