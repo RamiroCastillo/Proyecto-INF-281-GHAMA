@@ -1,3 +1,33 @@
+<?php
+ob_start();
+session_start();
+require_once('assest/php/Database.php');
+?>
+<?php
+if (isset($_POST['btn-login'])) {
+    $correo = $_POST['correo'];
+    $password = $_POST['password'];
+
+    $db = Database::getInstance();
+    $conn = $db->getConnection();
+
+    $query = "SELECT idUsuario, nombre,apellido, password FROM usuario WHERE email= '$correo' and password = MD5($password) ";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $count = mysqli_num_rows($result);
+    mysqli_close($conn);
+    if ($count > 0) {
+        $_SESSION['user'] = $row['idUsuario'];
+        $_SESSION['nombre'] = $row['nombre'];
+        $_SESSION['apellido'] = $row['apellido'];
+        
+        //header("Location: ../indexBo.php");
+    } elseif ($count == 1) {
+        //$errMSG = "Password incorrecto";
+        echo "<script> alert('Password incorrecto')</script>"; 
+    } else echo "<script> alert('Usuario no Encontrado')</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,12 +58,38 @@
                     <li class="menuPrin__item"><a href="#">Foro</a></li>
                     <li class="menuPrin__item"><a href="#">Consejos</a></li>
                 </ul>
-                <ul class="menuAcceso">
+
+                <?php
+                if (isset($_SESSION['user'])) {?>
+                <ul class="menuAcceso nav navbar-nav ">
+                <li class="dropdown ">
+                    <div class="text-center  menuUser dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">
+                        <figure class="menuUser__img ml-5">
+                            <img src="assest/images/pusuario.png" alt="Ramiro">
+                            <p class="mt-3">
+                                <?= $_SESSION['nombre'] . " " . $_SESSION['apellido']; ?>
+                            </p>
+                        </figure>
+                    </div>
+                    <ul class="menuAcceso dropdown-menu">
+                        <li><a href="assest/php/salir.php?logout" class="colorb"><i class="fas fa-sign-out-alt"></i>Salir</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+                <?php    
+                } else {?>
+                    <ul class="menuAcceso">
                     <li class="menuAcceso__item"><a href="#" class="btn--blancoTransparente js-login" data-dismiss="modal"
                             data-toggle="modal" data-target="#myModalEntrar">Entrar</a></li>
                     <li class="menuAcceso__item"><a href="#" class="btn--amarilloClaro js-registro" data-dismiss="modal"
                             data-toggle="modal" data-target="#myModal">Regístrate</a></li>
                 </ul>
+                <?php
+                }
+                ?>
+               
                 <button class="btn-cerrar" data-dismiss="modal"><i class="fas fa-times"></i><span>Cerrar</span></button>
             </div>
         </div>
@@ -51,18 +107,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="assest/php/usuarios/guardar.php" method="POST">
                         <div class="form-row">
                             <div class="col">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-user"></i></div>
                                     </div>
-                                    <input type="text" class="form-control inputS" placeholder="Nombre" required>
+                                    <input type="text" class="form-control inputS" name="nombre" placeholder="Nombre"
+                                        required>
                                 </div>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control inputS" placeholder="Apellido" required>
+                                <input type="text" class="form-control inputS" name="apellido" placeholder="Apellido"
+                                    required>
                             </div>
                         </div>
                         <div class="form-row">
@@ -71,7 +129,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-envelope"></i></div>
                                     </div>
-                                    <input type="email" class="form-control inputS" placeholder="Correo Electrónico"
+                                    <input type="email" class="form-control inputS" name="correo" placeholder="Correo Electrónico"
                                         required>
                                 </div>
                             </div>
@@ -82,7 +140,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-envelope"></i></div>
                                     </div>
-                                    <input type="email" class="form-control inputS" placeholder="Confirmar Correo Electrónico"
+                                    <input type="email" class="form-control inputS" name="correoc" placeholder="Confirmar Correo Electrónico"
                                         required>
                                 </div>
                             </div>
@@ -93,7 +151,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-lock"></i></div>
                                     </div>
-                                    <input type="password" class="form-control inputS" placeholder="Contraseña"
+                                    <input type="password" class="form-control inputS" name="password" placeholder="Contraseña"
                                         required>
                                 </div>
                             </div>
@@ -104,7 +162,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-lock"></i></div>
                                     </div>
-                                    <input type="password" class="form-control inputS" placeholder="Confirmar Contraseña"
+                                    <input type="password" class="form-control inputS" name="passwordc" placeholder="Confirmar Contraseña"
                                         required>
                                 </div>
                             </div>
@@ -115,7 +173,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-address-card"></i></div>
                                     </div>
-                                    <input type="text" class="form-control inputS" placeholder="C.I" required>
+                                    <input type="text" class="form-control inputS" name="ci" placeholder="C.I" required>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +183,8 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-phone"></i></div>
                                     </div>
-                                    <input type="text" class="form-control inputS" placeholder="Telefono" required>
+                                    <input type="text" class="form-control inputS" name="telefono" placeholder="Telefono"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +194,8 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-mobile-alt"></i></div>
                                     </div>
-                                    <input type="text" class="form-control inputS" placeholder="Celular" required>
+                                    <input type="text" class="form-control inputS" name="cel" placeholder="Celular"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +205,8 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-map-marker"></i></div>
                                     </div>
-                                    <input type="text" class="form-control inputS" placeholder="Direccion" required>
+                                    <input type="text" class="form-control inputS" name="direccion" placeholder="Direccion"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +216,8 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-user-md"></i></div>
                                     </div>
-                                    <input type="text" class="form-control inputS" placeholder="Ocupacion" required>
+                                    <input type="text" class="form-control inputS" name="ocupacion" placeholder="Ocupacion"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +227,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-calendar-alt"></i></div>
                                     </div>
-                                    <input type="date" class="form-control inputS" placeholder="Fecha de Nacimiento"
+                                    <input type="date" class="form-control inputS" name="fechaNac" placeholder="Fecha de Nacimiento"
                                         required>
                                 </div>
                             </div>
@@ -202,7 +264,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form autocomplete="off" method="post">
                         <div class="form-row mx-3">
                             <div class="col">
                                 <div class="input-group mb-2">
@@ -210,7 +272,7 @@
                                         <div class="input-group-text inputS"><i class="fas fa-envelope"></i></div>
                                     </div>
                                     <input type="email" class="form-control inputS" placeholder="Correo Electrónico"
-                                        required>
+                                        required name="correo">
                                 </div>
                             </div>
                         </div>
@@ -221,13 +283,13 @@
                                         <div class="input-group-text inputS"><i class="fas fa-lock"></i></div>
                                     </div>
                                     <input type="password" class="form-control inputS" placeholder="Contraseña"
-                                        required>
+                                        required name="password">
                                 </div>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col text-center">
-                                <button class=" btn my-btn" type="submit">Entrar
+                                <button class=" btn my-btn" type="submit" name="btn-login">Entrar
                                     <i class="fas fa-chevron-circle-right ml-2"></i>
                                 </button>
                             </div>
@@ -248,6 +310,56 @@
     </div>
     <!--FIN DE VENTANAS MODALES-->
     <!--INICIO DE BARRA DE NAVEGACION-->
+    <?php
+    if (isset($_SESSION['user'])) {  /*MENU CON SESION*/?>
+    <nav class="my-nav w-100 navbar navbar-expand-lg px-5" id="navsticky">
+        <a class="navbar-brand custom-navbar-brand" href="#">
+            <img src="assest/images/NuevoLogo.png" alt="Logo GHAMA"></a>
+        <button class="navbar-toggler custom-toggler " type="button" data-toggle="modal" data-target="#menuModal"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
+            <ul class="navbar-nav hover mr-5">
+                <li class="nav-item active d-flex align-items-center  ">
+                    <a class="nav-link px-3" href="#">Inicio</span></a>
+                </li>
+                <li class="nav-item d-flex align-items-center ">
+                    <a class="nav-link px-3" href="#">Capacitacion</a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link px-3" href="#">Recursos</a>
+                </li>
+                <li class="nav-item d-flex align-items-center ">
+                    <a class="nav-link px-3" href="#">Foro</a>
+                </li>
+                <li class="nav-item d-flex align-items-center ">
+                    <a class="nav-link px-3" href="#">Consejos</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <div class="menuUser dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">
+                        <figure class="menuUser__img">
+                            <img src="assest/images/pusuario.png" alt="Ramiro">
+                            <p class="mt-3">
+                                <?= $_SESSION['nombre'] . " " . $_SESSION['apellido']; ?>
+                            </p>
+                        </figure>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="assest/php/salir.php?logout" class="colorv"><i class="fas fa-sign-out-alt ml-4"></i>Salir</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        </div>
+    </nav>
+    <?php
+    } else {?>
     <nav class="my-nav w-100 navbar navbar-expand-lg px-5" id="navsticky">
         <a class="navbar-brand custom-navbar-brand" href="#"><img src="assest/images/NuevoLogo.png" alt="Logo GHAMA"></a>
         <button class="navbar-toggler custom-toggler " type="button" data-toggle="modal" data-target="#menuModal"
@@ -282,6 +394,11 @@
             </ul>
         </div>
     </nav>
+    <?php    
+    }
+    ?>
+
+
     <!--FIN DE BARRA DE NAVEGACION-->
     <!--INICIO DEL HEADER-->
     <header class="headerhome">
@@ -402,7 +519,8 @@
         </section>
         <!--INICIO DE CURSOS-->
         <!--INICIO DE SLIDE 1-->
-        <section class="carousel slide fondogris d-block d-md-none d-lg-none d-xl-none" data-ride="carousel" id="card-slide" data-interval="false">
+        <section class="carousel slide fondogris d-block d-md-none d-lg-none d-xl-none" data-ride="carousel" id="card-slide"
+            data-interval="false">
             <div class="container carousel-inner">
                 <div class="row justify-content-around" id="filaIni">
                     <div class="col-12 col-md-6 col-lg-4 col-xl-4 carousel-item active" id="ele1">
@@ -1150,5 +1268,13 @@
     <script type="text/javascript" src="assest/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assest/js/main.js"></script>
 </body>
+<?php
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+?>
 
 </html>

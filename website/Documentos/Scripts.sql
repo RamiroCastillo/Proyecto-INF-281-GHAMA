@@ -3,14 +3,19 @@ CREATE TABLE consejo (
 	descripcion varchar(250),
 	tema varchar(100),
 	categoria varchar(100),
-	CONSTRAINT consejo_pk PRIMARY KEY (idConsejo)
+	idUsuario int,
+	CONSTRAINT consejo_pk PRIMARY KEY (idConsejo),
+	CONSTRAINT consejo_fk1 FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+
 )ENGINE MyISAM charset utf8 COLLATE utf8_spanish_ci;
 CREATE TABLE foro(
 	id int UNSIGNED not null AUTO_INCREMENT,
 	tema varchar(100),
 	discusion varchar(250),
 	categoria varchar(100),
-	CONSTRAINT foro_pk PRIMARY KEY (id)
+	idUsuario int,
+	CONSTRAINT foro_pk PRIMARY KEY (id),
+	CONSTRAINT foro_fk1 FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
 )ENGINE MyISAM charset utf8 COLLATE utf8_spanish_ci;
 CREATE TABLE usuario(
 	idUsuario int UNSIGNED not null AUTO_INCREMENT,
