@@ -13,6 +13,7 @@ $validar = new Validar();
 if (isset($_SESSION['user']) != "") {
     header("Location: ../../../index.php");
 }
+
 $nombre = $validar->filterForm($_POST['nombre']);
 $apellido = $validar->filterForm($_POST['apellido']);
 $correo = $validar->filterForm($_POST['correo']);
@@ -36,7 +37,7 @@ $count = mysqli_num_rows($result);
 if ($count == 0) {
     
         //insertamos al nuevo usuario
-    $query = "INSERT INTO usuario(nombre, apellido, ci, telefono, celular, direccion, ocupacion, fecha_nac, email, password, foto) VALUES('$nombre','$apellido','$ci','$telefono','$celular','$direccion','$ocupacion','$fechaNac','$correo',MD5('$password'),'perfil-usuario.png')";
+    $query = "INSERT INTO usuario(nombre, apellido, ci, telefono, celular, direccion, ocupacion, fecha_nac, email, password, foto) VALUES('$nombre','$apellido','$ci','$telefono','$celular','$direccion','$ocupacion','$fechaNac','$correo',MD5('$password'),'pusuario.png')";
     $result = mysqli_query($con, $query);
     $user_id = mysqli_insert_id($con);
     if (!$result) {

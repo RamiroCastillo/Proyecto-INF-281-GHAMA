@@ -1007,7 +1007,7 @@ p {
 }
 
 @media only screen and (max-width:767px) {
-	figure {
+	.margin {
 		margin-left: 9rem;
 
 	}
@@ -1018,7 +1018,7 @@ p {
 }
 
 @media only screen and (max-width:375px) {
-	figure {
+	.margin {
 		margin-left: 7rem;
 
 	}
@@ -1026,7 +1026,7 @@ p {
 }
 
 @media only screen and (max-width:320px) {
-	figure {
+	.margin {
 		margin-left: 6rem;
 
 	}
@@ -1528,4 +1528,65 @@ textarea {
 .dropdown-toggle::after {
 	color: white;
 	margin-bottom: 15px;
+}
+.cursoDestacado__video {
+	position: relative;
+	overflow: hidden;
+	border-radius: 5px 5px 0 0;
+	cursor: pointer;
+}
+.cursoDestacado__video:after,
+.cursoDestacado__video:before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 100%;
+}
+.cursoDestacado__video:after {
+	z-index: 10;
+	height: 50px;
+	bottom: -1px;
+	background: url(../images/cursoDestacado__video-bottom.69bd0a99ba.svg) left bottom no-repeat;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	background-size: contain;
+}
+.cursoDestacado__video .filtro {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	border-radius: 5px 5px 0 0;
+	/*background: rgba(38, 191, 162, .7);*/
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	transition: all .3s ease;
+}
+.colorfiltro1{
+	background: rgba(38, 191, 162, .7);
+}
+.colorfiltro2 {
+	background: rgba(243, 29, 97, .7);
+}
+.colorfiltro3 {
+	background: rgba(43, 102, 255, .6);
+}
+.colorfiltro4 {
+	background: rgba(150, 76, 182, .7);
+}
+.cursoDestacado__video .filtro:hover {
+	background: transparent;
+}
+
+a:link{
+	text-decoration: none;
+}
+
+/* tamaño de las card*/
+.modiftamcard{
+	height: 176px;
 }

@@ -4,31 +4,12 @@ session_start();
 require_once('assest/php/Database.php');
 ?>
 <?php
-if (isset($_POST['btn-login'])) {
-    $correo = $_POST['correo'];
-    $password = $_POST['password'];
-
-    $db = Database::getInstance();
-    $conn = $db->getConnection();
-
-    $query = "SELECT idUsuario, nombre,apellido, foto,password FROM usuario WHERE email= '$correo' and password = MD5($password) ";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $count = mysqli_num_rows($result);
-    //mysqli_close($conn);
-    if ($count > 0) {
-        $_SESSION['user'] = $row['idUsuario'];
-        $_SESSION['nombre'] = $row['nombre'];
-        $_SESSION['apellido'] = $row['apellido'];
-        $_SESSION['foto'] = $row['foto'];
-        
-        
-        //header("Location: ../indexBo.php");
-    } elseif ($count == 1) {
-        //$errMSG = "Password incorrecto";
-        echo "<script> alert('Password incorrecto')</script>"; 
-    } else echo "<script> alert('Usuario no Encontrado')</script>";
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php");
 }
+$db = Database::getInstance();
+$con = $db->getConnection();
+@mysql_query("SET NAMES 'utf8'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +18,7 @@ if (isset($_POST['btn-login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pagina de Inicio</title>
+    <title>Capacitacion</title>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link rel="shorcut icon" type="image/x-icon" href="assest/images/favicon.ico">
     <link rel="stylesheet" href="assest/css/normalize.css">
@@ -54,7 +35,7 @@ if (isset($_POST['btn-login'])) {
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content menuMovil">
                 <ul class="menuPrin">
-                    <li class="menuPrin__item"><a href="#">Inicio</a></li>
+                    <li class="menuPrin__item"><a href="index.php">Inicio</a></li>
                     <li class="menuPrin__item"><a href="capacitacion.php">Capacitacion</a></li>
                     <li class="menuPrin__item"><a href="#">Gestor de Recursos</a></li>
                     <li class="menuPrin__item"><a href="#">Foro</a></li>
@@ -62,7 +43,7 @@ if (isset($_POST['btn-login'])) {
                 </ul>
 
                 <?php
-                if (isset($_SESSION['user'])) {?>
+                if (isset($_SESSION['user'])) { ?>
                 <ul class="menuAcceso nav navbar-nav ">
                     <li class="dropdown ">
                         <div class="text-center  menuUser dropdown-toggle" data-toggle="dropdown" role="button"
@@ -80,8 +61,8 @@ if (isset($_POST['btn-login'])) {
                         </ul>
                     </li>
                 </ul>
-                <?php    
-                } else {?>
+                <?php 
+            } else { ?>
                 <ul class="menuAcceso">
                     <li class="menuAcceso__item"><a href="#" class="btn--blancoTransparente js-login" data-dismiss="modal"
                             data-toggle="modal" data-target="#myModalEntrar">Entrar</a></li>
@@ -89,8 +70,9 @@ if (isset($_POST['btn-login'])) {
                             data-toggle="modal" data-target="#myModal">Regístrate</a></li>
                 </ul>
                 <?php
-                }
-                ?>
+
+            }
+            ?>
 
                 <button class="btn-cerrar" data-dismiss="modal"><i class="fas fa-times"></i><span>Cerrar</span></button>
             </div>
@@ -313,7 +295,7 @@ if (isset($_POST['btn-login'])) {
     <!--FIN DE VENTANAS MODALES-->
     <!--INICIO DE BARRA DE NAVEGACION-->
     <?php
-    if (isset($_SESSION['user'])) {  /*MENU CON SESION*/?>
+    if (isset($_SESSION['user'])) {  /*MENU CON SESION*/ ?>
     <nav class="my-nav w-100 navbar navbar-expand-lg px-5" id="navsticky">
         <a class="navbar-brand custom-navbar-brand" href="#">
             <img src="assest/images/NuevoLogo.png" alt="Logo GHAMA"></a>
@@ -324,7 +306,7 @@ if (isset($_POST['btn-login'])) {
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
             <ul class="navbar-nav hover mr-5">
                 <li class="nav-item active d-flex align-items-center  ">
-                    <a class="nav-link px-3" href="#">Inicio</span></a>
+                    <a class="nav-link px-3" href="index.php">Inicio</span></a>
                 </li>
                 <li class="nav-item d-flex align-items-center ">
                     <a class="nav-link px-3" href="capacitacion.php">Capacitacion</a>
@@ -344,7 +326,7 @@ if (isset($_POST['btn-login'])) {
                     <div class="menuUser dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">
                         <figure class="menuUser__img">
-                            <img src="assest/images/<?= $_SESSION['foto'];?>" alt="Ramiro">
+                            <img src="assest/images/<?= $_SESSION['foto']; ?>" alt="Ramiro">
                             <p class="mt-3">
                                 <?= $_SESSION['nombre'] . " " . $_SESSION['apellido']; ?>
                             </p>
@@ -361,7 +343,8 @@ if (isset($_POST['btn-login'])) {
         </div>
     </nav>
     <?php
-    } else {?>
+
+} else { ?>
     <nav class="my-nav w-100 navbar navbar-expand-lg px-5" id="navsticky">
         <a class="navbar-brand custom-navbar-brand" href="#"><img src="assest/images/NuevoLogo.png" alt="Logo GHAMA"></a>
         <button class="navbar-toggler custom-toggler " type="button" data-toggle="modal" data-target="#menuModal"
@@ -371,7 +354,7 @@ if (isset($_POST['btn-login'])) {
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
             <ul class="navbar-nav hover mr-5">
                 <li class="nav-item active d-flex align-items-center  ">
-                    <a class="nav-link px-3" href="#">Inicio</span></a>
+                    <a class="nav-link px-3" href="index.php">Inicio</span></a>
                 </li>
                 <li class="nav-item d-flex align-items-center ">
                     <a class="nav-link px-3" href="capacitacion.php">Capacitacion</a>
@@ -396,9 +379,9 @@ if (isset($_POST['btn-login'])) {
             </ul>
         </div>
     </nav>
-    <?php    
-    }
-    ?>
+    <?php 
+}
+?>
 
 
     <!--FIN DE BARRA DE NAVEGACION-->
@@ -513,186 +496,163 @@ if (isset($_POST['btn-login'])) {
             <div class="row">
                 <div class="col-12 ">
                     <div class="contenidoI adornoSandI text-center py-2">
-                        <h2>Lo que se aprendera</h2>
-                        <p class="pb-2">Los temas que veras llegaran a ser de gran ayuda para ti</p>
+                        <h2>Aqui veras todos los temas a tratarse</h2>
                     </div>
                 </div>
             </div>
         </section>
-        <?php
-        include("assest/php/mostrar.php");
-        ?>
-        <!--FIN SLIDE 3-->
-        <!--FIN DE CURSOS-->
-        <section class="container fcolor">
-            <div class="row justify-content-around customrow l-main-decorar--ziczac">
-                <div class="col-sm-12 col-md-12 col-lg-12 ">
-                    <div class="encabezadoSection contenidoI text-center">
-                        <h2>¿ Por que Capacitarse?</h2>
-                        <p>Nuestra metodología es sobre experiencias de situaciones reales.</p>
-                    </div>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-lg-4 col-xl-4 col-12 listaIconos__item icon-footprint">
-                    <h3 class="listaIconos__titulo">Disversas opniones</h3>
-                    <p class="listaIconos__p contenidoI">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        Odit, molestias tempora amet beatae sunt ut veniam ea autem.</p>
-                </div>
-                <div class="col-lg-4 col-xl-4 col-12 listaIconos__item icon-helpprint">
-                    <h3 class="listaIconos__titulo">Ayuda conjunta</h3>
-                    <p class="listaIconos__p contenidoI">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        Odit, molestias tempora amet beatae
-                        sunt ut veniam ea autem.</p>
-                </div>
-                <div class="col-lg-4 col-xl-4 col-12 listaIconos__item icon-videoprint">
-                    <h3 class="listaIconos__titulo">Material grafico</h3>
-                    <p class="listaIconos__p contenidoI">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        Odit, molestias tempora amet beatae sunt ut veniam ea autem.</p>
-                </div>
-            </div>
 
-        </section>
+        <section class="fondogris">
+            <div class="container d-xl-block d-lg-block d-none">
+                <?php
+                
+                $consulta1 = "SELECT * FROM tema"; //WHERE nombre like '$nombre%'
+                $respuesta1 = mysqli_query($con, $consulta1) or die(mysql_error());
+                
 
-        <section class="g-contenedor-full l-main-contenedorDark">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-12 encabezadoSeccion text-center">
-                        <h2>Ellos probaron el sistema</h2>
-                    </div>
-                </div>
-                <div class="row g-contenedor justify-content-center">
-                    <div class="col-12 l-footer-testimonios">
-                        <div id="carouselTestimonios" class="carousel slide customcarrusuel carousel-fade " data-ride="carousel"
-                            data-interval="6000">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselTestimonios" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselTestimonios" data-slide-to="1"></li>
-                                <li data-target="#carouselTestimonios" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active testimonio__item">
-                                    <blockquote class="testimonio--dark ">
-                                        <div class="testimonio__detalle">
-                                            <div class="row justify-content-between">
-                                                <div class="col-md-2 col-lg-2 col-xl-2 col-sm-12 col-12 ">
-                                                    <figure class="testimonio__img icon-bubble-quote margin">
-                                                        <img src="assest/images/EddyRamos.jpg" class="media rounded-circle"
-                                                            height="100" width="100" alt="Eddy Ramos uno de los que probo el sistema">
-                                                    </figure>
-                                                </div>
+                $total1 = mysqli_num_rows($respuesta1);
+                $paginacion1 = 3; //3
+                $nrofila = ceil($total1 / $paginacion1);
+                $ini1 = 0;
+                $filtro = 1;
+                for ($i = 1; $i <= $nrofila; $i++) { ?>
+                <br><br>
+                <div class="row justify-content-around">
+                    <?php
+                    $consulta1 = "SELECT * FROM tema as t,usuario as u where t.idUsuario = u.idUsuario LIMIT $ini1,$paginacion1";
 
-                                                <div class="col-md-10 col-lg-10 col-xl-10 col-sm-12 col-12">
-                                                    <p class="testimonio__p">"Realmente fue una experiencia
-                                                        excelente,la asesoría por parte del tutor siempre fue presta a
-                                                        resolver inquietudes,las clases fueron mas del tiempo esperado,
-                                                        de verdad que el quequiera aprender y despejar todas sus dudas
-                                                        este es el curso para usted. Lorecomiendo 200%."</p>
-                                                </div>
+                    $respuesta1 = mysqli_query($con, $consulta1);
 
-                                            </div>
-                                        </div>
-                                        <div class="testimonio__footer">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <cite>
-                                                        <a href="https://www.facebook.com/eddy.ramos.1656">
-                                                            <span class="testiminio__nombre">Eddy Rodrigo Ramos</span>
-                                                            <span class="testimonio__fuente">fb.com/eddy.ramos.1656</span>
-                                                        </a>
-                                                    </cite>
-                                                </div>
-                                            </div>
+                    while ($fila1 = mysqli_fetch_array($respuesta1)) { ?>
+                    <div class="col-4">
+                        <div class="card my-cards">
+                            <figure class="cursoDestacado__video">
+                                <img class="card-img-top imgc" src="assest/images/<?= $fila1['imagenTema']; ?>" alt="Card image cap"
+                                    height=170>
+                                <?php
+                                if ($filtro <= 4) { ?>
+                                <span class="filtro colorfiltro<?= $filtro; ?>"></span>
+                                <?php
 
-                                        </div>
-                                    </blockquote>
-                                </div>
-                                <div class="carousel-item testimonio__item">
-                                    <blockquote class="testimonio--dark ">
-                                        <div class="testimonio__detalle">
-                                            <div class="row justify-content-between">
-                                                <div class="col-md-2 col-lg-2 col-xl-2 col-sm-12 col-12 ">
-                                                    <figure class="testimonio__img icon-bubble-quote margin">
-                                                        <img src="assest/images/avatar.jpg" class="media rounded-circle"
-                                                            height="100" width="100" alt="Eddy Ramos uno de los que probo el sistema">
-                                                    </figure>
-                                                </div>
+                            } else {
+                                $filtro = 1 ?>
+                                <span class="filtro colorfiltro<?= $filtro; ?>"></span>
+                                <?php
 
-                                                <div class="col-md-10 col-lg-10 col-xl-10 col-sm-12 col-12">
-                                                    <p class="testimonio__p">"Realmente fue una experiencia excelente,
-                                                        la
-                                                        asesoría por parte del tutor siempre fue presta a resolver
-                                                        inquietudes,
-                                                        las clases fueron mas del tiempo esperado, de verdad que el que
-                                                        quiera
-                                                        aprender y despejar todas sus dudas este es el curso para
-                                                        usted. Lo
-                                                        recomiendo 200%."</p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="testimonio__footer">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <cite>
-                                                        <a href="https://www.facebook.com/eddy.ramos.1656">
-                                                            <span class="testiminio__nombre">Eddy Rodrigo Ramos</span>
-                                                            <span class="testimonio__fuente">fb.com/eddy.ramos.1656</span>
-                                                        </a>
-                                                    </cite>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </blockquote>
-
-                                </div>
-                                <div class="carousel-item testimonio__item">
-                                    <blockquote class="testimonio--dark ">
-                                        <div class="testimonio__detalle">
-                                            <div class="row justify-content-between">
-                                                <div class="col-md-2 col-lg-2 col-xl-2 col-sm-12 col-12 ">
-                                                    <figure class="testimonio__img icon-bubble-quote margin">
-                                                        <img src="assest/images/EddyRamos.jpg" class="media rounded-circle"
-                                                            height="100" width="100" alt="Eddy Ramos uno de los que probo el sistema">
-                                                    </figure>
-                                                </div>
-
-                                                <div class="col-md-10 col-lg-10 col-xl-10 col-sm-12 col-12">
-                                                    <p class="testimonio__p">"Realmente fue una experiencia excelente,
-                                                        la
-                                                        asesoría por parte del tutor siempre fue presta a resolver
-                                                        inquietudes,
-                                                        las clases fueron mas del tiempo esperado, de verdad que el que
-                                                        quiera
-                                                        aprender y despejar todas sus dudas este es el curso para
-                                                        usted. Lo
-                                                        recomiendo 200%."</p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="testimonio__footer">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <cite>
-                                                        <a href="https://www.facebook.com/eddy.ramos.1656">
-                                                            <span class="testiminio__nombre">Eddy Rodrigo Ramos</span>
-                                                            <span class="testimonio__fuente">fb.com/eddy.ramos.1656</span>
-                                                        </a>
-                                                    </cite>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </blockquote>
-
+                            }
+                            ?>
+                            </figure>
+                            <div class="card-body modiftamcard">
+                                <h5 class="card-title">
+                                    <?= $fila1['tema']; ?>
+                                </h5>
+                                <p class="card-text">
+                                    <?= $fila1['descripcion']; ?>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/<?= $fila1['foto']; ?>"
+                                            alt="Card image cap" height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>
+                                            <?= $fila1['nombre'] . " " . $fila1['apellido']; ?></span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    $filtro = $filtro + 1;
+                }
+                ?>
                 </div>
+                <?php
+                $ini1 = $ini1 + 3;
+            }
+            ?>
             </div>
+
+            <div class="container d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                <?php
+                $consulta1 = "SELECT * FROM tema"; //WHERE nombre like '$nombre%'
+                $respuesta1 = mysqli_query($con, $consulta1) or die(mysql_error());
+
+                $total1 = mysqli_num_rows($respuesta1);
+                $paginacion1 = 1; //3
+                $nrofila = ceil($total1 / $paginacion1);
+                $ini1 = 0;
+                $filtro = 1;
+                for ($i = 1; $i <= $nrofila; $i++) { ?>
+                <br><br>
+                <div class="row justify-content-around">
+                    <?php
+                    $consulta1 = "SELECT * FROM tema as t,usuario as u where t.idUsuario = u.idUsuario LIMIT $ini1,$paginacion1";
+
+                    $respuesta1 = mysqli_query($con, $consulta1);
+
+                    while ($fila1 = mysqli_fetch_array($respuesta1)) { ?>
+                    <div class="col-12">
+                        <div class="card my-cards">
+                            <figure class="cursoDestacado__video">
+                                <img class="card-img-top imgc" src="assest/images/<?= $fila1['imagenTema']; ?>" alt="Card image cap"
+                                    height=170>
+                                <?php
+                                if ($filtro <= 4) { ?>
+                                <span class="filtro colorfiltro<?= $filtro; ?>"></span>
+                                <?php
+
+                            } else {
+                                $filtro = 1 ?>
+                                <span class="filtro colorfiltro<?= $filtro; ?>"></span>
+                                <?php
+
+                            }
+                            ?>
+                            </figure>
+                            <div class="card-body modiftamcard">
+                                <h5 class="card-title">
+                                    <?= $fila1['tema']; ?>
+                                </h5>
+                                <p class="card-text">
+                                    <?= $fila1['descripcion']; ?>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row justify-content-around align-items-center">
+                                    <div class="col-auto">
+                                        <img class="img-fluid rounded-circle" src="assest/images/<?= $fila1['foto']; ?>"
+                                            alt="Card image cap" height="50px" width="50px">
+                                    </div>
+                                    <div class="col-auto mr-auto colort">
+                                        <span>
+                                            <?= $fila1['nombre'] . " " . $fila1['apellido']; ?></span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $filtro = $filtro + 1;
+                }
+                ?>
+                </div>
+                <?php
+                $ini1 = $ini1 + 1;
+            }
+            ?>
+            </div>
+        </section>
+
+        <section class="g-contenedor-full l-main-contenedorDark">
 
         </section>
         <!--footer-->

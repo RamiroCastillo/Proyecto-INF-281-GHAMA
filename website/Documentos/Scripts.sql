@@ -154,7 +154,8 @@ CREATE TABLE crea2(
 /*INSERTAR USUARIOS*/
 INSERT INTO usuario VALUES(null,'Eddy','Ramos','Quenta','38657066','2216703','70667445','Av. 6 de Marzo Z.12 de Octubre','Heladero','eddy@gmail.com','123',1,1);
 /*Elegir Temas*/
-SELECT t.nombre,t.descripcion,t.categoria
-FROM tema as t
+SELECT *
+FROM tema as t,usuario as u
+where t.idUsuario = u.idUsuario
 /*COMPARTIR RECURSOS*/
 INSERT INTO recurso VALUES('cuchillos',1,'Imagen donde se logra apreciar armas punso cortantes ','imagen')
