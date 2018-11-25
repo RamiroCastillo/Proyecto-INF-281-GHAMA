@@ -54,7 +54,7 @@ if (isset($_POST['btn-login'])) {
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content menuMovil">
                 <ul class="menuPrin">
-                    <li class="menuPrin__item"><a href="#">Inicio</a></li>
+                    <li class="menuPrin__item"><a href="index.php" class="active">Inicio</a></li>
                     <li class="menuPrin__item"><a href="capacitacion.php">Capacitacion</a></li>
                     <li class="menuPrin__item"><a href="#">Gestor de Recursos</a></li>
                     <li class="menuPrin__item"><a href="#">Foro</a></li>
@@ -68,7 +68,7 @@ if (isset($_POST['btn-login'])) {
                         <div class="text-center  menuUser dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">
                             <figure class="menuUser__img ml-5">
-                                <img src="assest/images/pusuario.png" alt="Ramiro">
+                                <img src="assest/images/<?=$_SESSION['foto'];?>" alt="Ramiro">
                                 <p class="mt-3">
                                     <?= $_SESSION['nombre'] . " " . $_SESSION['apellido']; ?>
                                 </p>
@@ -324,7 +324,7 @@ if (isset($_POST['btn-login'])) {
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav">
             <ul class="navbar-nav hover mr-5">
                 <li class="nav-item active d-flex align-items-center  ">
-                    <a class="nav-link px-3" href="#">Inicio</span></a>
+                    <a class="nav-link px-3 " href="index.php">Inicio</span></a>
                 </li>
                 <li class="nav-item d-flex align-items-center ">
                     <a class="nav-link px-3" href="capacitacion.php">Capacitacion</a>

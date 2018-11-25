@@ -43,7 +43,7 @@ echo $ini1;*/
             <div class="col-12 col-md-6 col-lg-4 col-xl-4 ">
                 <div class="card my-cards">
                     <figure class="cursoDestacado__video">
-                        <img class="card-img-top imgc" src="assest/images/<?= $fila1['imagenTema']; ?>" alt="Card image cap"
+                        <img class="card-img-top" src="assest/images/<?= $fila1['imagenTema']; ?>" alt="Card image cap"
                             height=170>
                         <?php
                         if ($filtro <= 4) { ?>
@@ -78,7 +78,7 @@ echo $ini1;*/
                                     <?= $fila1['nombre'] . " " . $fila1['apellido']; ?></span>
                             </div>
                             <div class="col-auto">
-                                <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                <a href="tema.php?tema=<?= $fila1['idTema']; ?>"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ echo $ini1;*/
             <div class="col-12 col-md-6 col-lg-4 col-xl-4 ">
                 <div class="card my-cards">
                     <figure class="cursoDestacado__video">
-                        <img class="card-img-top imgc" src="assest/images/<?= $fila1['imagenTema']; ?>" alt="Card image cap"
+                        <img class="card-img-top" src="assest/images/<?= $fila1['imagenTema']; ?>" alt="Card image cap"
                             height=170>
                         <?php
                         if ($filtro <= 4) { ?>
@@ -137,7 +137,7 @@ echo $ini1;*/
                                     <?= $fila1['nombre'] . " " . $fila1['apellido']; ?></span>
                             </div>
                             <div class="col-auto">
-                                <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                <a href="tema.php?tema=<?= $fila1['idTema']; ?>"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
                             </div>
                         </div>
                     </div>
@@ -199,7 +199,7 @@ $ini2 = 0;
             <div class="col-12 col-md-6 col-lg-4 col-xl-4 ">
                 <div class="card my-cards">
                     <figure class="cursoDestacado__video">
-                        <img class="card-img-top imgc" src="assest/images/<?= $fila2['imagenTema']; ?>" alt="Card image cap"
+                        <img class="card-img-top " src="assest/images/<?= $fila2['imagenTema']; ?>" alt="Card image cap"
                             height=170>
                         <?php
                         if ($filtro <= 4) { ?>
@@ -234,7 +234,7 @@ $ini2 = 0;
                                     <?= $fila2['nombre'] . " " . $fila2['apellido']; ?></span>
                             </div>
                             <div class="col-auto">
-                                <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                <a href="tema.php?tema=<?= $fila2['idTema']; ?>"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
                             </div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@ $ini2 = 0;
             <div class="col-12 col-md-6 col-lg-4 col-xl-4 ">
                 <div class="card my-cards">
                     <figure class="cursoDestacado__video">
-                        <img class="card-img-top imgc" src="assest/images/<?= $fila2['imagenTema']; ?>" alt="Card image cap"
+                        <img class="card-img-top " src="assest/images/<?= $fila2['imagenTema']; ?>" alt="Card image cap"
                             height=170>
                         <?php
                             if ($filtro <= 4) { ?>
@@ -293,7 +293,7 @@ $ini2 = 0;
                                     <?= $fila2['nombre']." ". $fila2['apellido']; ?></span>
                             </div>
                             <div class="col-auto">
-                                <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                <a href="tema.php?tema=<?= $fila2['idTema']; ?>"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
                             </div>
                         </div>
                     </div>
@@ -352,7 +352,7 @@ $ini3 = 0;
             <div class="col-12 col-md-6 col-lg-4 col-xl-4 ">
                 <div class="card my-cards">
                     <figure class="cursoDestacado__video">
-                        <img class="card-img-top imgc" src="assest/images/<?= $fila3['imagenTema']; ?>" alt="Card image cap"
+                        <img class="card-img-top" src="assest/images/<?= $fila3['imagenTema']; ?>" alt="Card image cap"
                             height=170>
                         <?php
                         if ($filtro <= 4) { ?>
@@ -386,7 +386,7 @@ $ini3 = 0;
                                     <?= $fila3['nombre'] . " " . $fila3['apellido']; ?></span>
                             </div>
                             <div class="col-auto">
-                                <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                <a href="tema.php?tema=<?= $fila3['idTema']; ?>"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
                             </div>
                         </div>
                     </div>
@@ -411,7 +411,7 @@ $ini3 = 0;
             <div class="col-12 col-md-6 col-lg-4 col-xl-4 ">
                 <div class="card my-cards">
                     <figure class="cursoDestacado__video">
-                        <img class="card-img-top imgc" src="assest/images/<?= $fila3['imagenTema']; ?>" alt="Card image cap"
+                        <img class="card-img-top " src="assest/images/<?= $fila3['imagenTema']; ?>" alt="Card image cap"
                             height=170>
                         <?php
                             if ($filtro <= 4) { ?>
@@ -443,10 +443,10 @@ $ini3 = 0;
                             </div>
                             <div class="col-auto mr-auto colort">
                                 <span>
-                                    <?= $fila3['nombre']; ?></span>
+                                    <?= $fila3['nombre']." ". $fila3['apellido'] ;?></span>
                             </div>
                             <div class="col-auto">
-                                <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                <a href="tema.php?tema=<?=$fila3['idTema'];?>"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
                             </div>
                         </div>
                     </div>

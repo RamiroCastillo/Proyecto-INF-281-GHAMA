@@ -10,6 +10,7 @@ if (!isset($_SESSION['user'])) {
 $db = Database::getInstance();
 $con = $db->getConnection();
 @mysql_query("SET NAMES 'utf8'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,7 @@ $con = $db->getConnection();
             <div class="modal-content menuMovil">
                 <ul class="menuPrin">
                     <li class="menuPrin__item"><a href="index.php">Inicio</a></li>
-                    <li class="menuPrin__item"><a href="capacitacion.php">Capacitacion</a></li>
+                    <li class="menuPrin__item"><a href="capacitacion.php" class="activado">Capacitacion</a></li>
                     <li class="menuPrin__item"><a href="#">Gestor de Recursos</a></li>
                     <li class="menuPrin__item"><a href="#">Foro</a></li>
                     <li class="menuPrin__item"><a href="#">Consejos</a></li>
@@ -49,7 +50,7 @@ $con = $db->getConnection();
                         <div class="text-center  menuUser dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">
                             <figure class="menuUser__img ml-5">
-                                <img src="assest/images/pusuario.png" alt="Ramiro">
+                                <img src="assest/images/<?=$_SESSION['foto'];?>" alt="Ramiro">
                                 <p class="mt-3">
                                     <?= $_SESSION['nombre'] . " " . $_SESSION['apellido']; ?>
                                 </p>
@@ -309,7 +310,7 @@ $con = $db->getConnection();
                     <a class="nav-link px-3" href="index.php">Inicio</span></a>
                 </li>
                 <li class="nav-item d-flex align-items-center ">
-                    <a class="nav-link px-3" href="capacitacion.php">Capacitacion</a>
+                    <a class="nav-link px-3 activado" href="capacitacion.php">Capacitacion</a>
                 </li>
                 <li class="nav-item d-flex align-items-center">
                     <a class="nav-link px-3" href="#">Recursos</a>
@@ -357,7 +358,7 @@ $con = $db->getConnection();
                     <a class="nav-link px-3" href="index.php">Inicio</span></a>
                 </li>
                 <li class="nav-item d-flex align-items-center ">
-                    <a class="nav-link px-3" href="capacitacion.php">Capacitacion</a>
+                    <a class="nav-link px-3 activado" href="capacitacion.php">Capacitacion</a>
                 </li>
                 <li class="nav-item d-flex align-items-center">
                     <a class="nav-link px-3" href="#">Recursos</a>
@@ -527,7 +528,7 @@ $con = $db->getConnection();
                     <div class="col-4">
                         <div class="card my-cards">
                             <figure class="cursoDestacado__video">
-                                <img class="card-img-top imgc" src="assest/images/<?= $fila1['imagenTema']; ?>" alt="Card image cap"
+                                <img class="card-img-top" src="assest/images/<?= $fila1['imagenTema']; ?>" alt="Card image cap"
                                     height=170>
                                 <?php
                                 if ($filtro <= 4) { ?>
@@ -561,7 +562,8 @@ $con = $db->getConnection();
                                             <?= $fila1['nombre'] . " " . $fila1['apellido']; ?></span>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                        <a href="tema.php?tema=<?=$fila1['idTema'];?>"><button type="button" name="button"
+                                                class="btn-cap">CAPACITATE</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -634,7 +636,7 @@ $con = $db->getConnection();
                                             <?= $fila1['nombre'] . " " . $fila1['apellido']; ?></span>
                                     </div>
                                     <div class="col-auto">
-                                        <a href="capacitacion.php"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
+                                        <a href="tema.php?tema=<?= $fila1['idTema']; ?>"><button type="button" name="button" class="btn-cap">CAPACITATE</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -653,7 +655,13 @@ $con = $db->getConnection();
         </section>
 
         <section class="g-contenedor-full l-main-contenedorDark">
-
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-12 text-center">
+                        <a href="capacitacion.php" class="btn-accion2--amarilloClaro text-center">¡Comienza un curso!</a>
+                    </div>
+                </div>
+            </div>
         </section>
         <!--footer-->
 
