@@ -1,9 +1,14 @@
 <?php
+header('Cache-Control: no cache'); //no cache
+session_cache_limiter('private_no_expire'); // works
 //ob_start();
 session_start();
 require_once('assest/php/Database.php');
+$_SESSION['confC'] = 0;
+$_SESSION['confConsec'] = 0;
 ?>
 <?php
+
 if (isset($_POST['btn-login'])) {
     $correo = $_POST['correo'];
     $password = $_POST['password'];
@@ -21,8 +26,6 @@ if (isset($_POST['btn-login'])) {
         $_SESSION['nombre'] = $row['nombre'];
         $_SESSION['apellido'] = $row['apellido'];
         $_SESSION['foto'] = $row['foto'];
-        
-        
         //header("Location: ../indexBo.php");
     } elseif ($count == 1) {
         //$errMSG = "Password incorrecto";
@@ -116,8 +119,7 @@ if (isset($_POST['btn-login'])) {
                                     <div class="input-group-prepend">
                                         <div class="input-group-text inputS"><i class="fas fa-user"></i></div>
                                     </div>
-                                    <input type="text" class="form-control inputS" name="nombre" placeholder="Nombre"
-                                        required>
+                                    <input type="text" class="form-control inputS" name="nombre" placeholder="Nombre" required pattern="[A-Za-z0-9]{5,40}" title="Letras y números. Tamaño mínimo: 5. Tamaño máximo: 40">
                                 </div>
                             </div>
                             <div class="col">
@@ -344,7 +346,7 @@ if (isset($_POST['btn-login'])) {
                     <div class="menuUser dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">
                         <figure class="menuUser__img">
-                            <img src="assest/images/<?= $_SESSION['foto'];?>" alt="Ramiro">
+                            <img src="assest/images/<?= $_SESSION['foto'];?>" alt="<?= $_SESSION['nombre'] . " " . $_SESSION['apellido']; ?>">
                             <p class="mt-3">
                                 <?= $_SESSION['nombre'] . " " . $_SESSION['apellido']; ?>
                             </p>
@@ -391,7 +393,7 @@ if (isset($_POST['btn-login'])) {
                     <a class="nav-link px-3 bgc" href="#" data-toggle="modal" data-target="#myModalEntrar">Entrar</span></a>
                 </li>
                 <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link px-3 bgcr" href="#" data-toggle="modal" data-target="#myModal">Resgistrate</a>
+                    <a class="nav-link px-3 bgcr" href="#" data-toggle="modal" data-target="#myModal">Registrate</a>
                 </li>
             </ul>
         </div>

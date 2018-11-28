@@ -1,7 +1,32 @@
 $(document).ready(function () {
-	//saludo();
+	$("#nav-video-tab").click(function () {
+		$("#nav-video-tab").removeClass("btnResBlank");
+		$("#nav-video-tab").addClass("btnRes");
+		$("#nav-imagen-tab").removeClass("btnRes");
+		$("#nav-imagen-tab").addClass("btnResBlank");
+	});
+	$("#nav-imagen-tab").click(function () {
+		$("#nav-video-tab").removeClass("btnRes");
+		$("#nav-video-tab").addClass("btnResBlank");
+		$("#nav-imagen-tab").removeClass("btnResBlank");
+		$("#nav-imagen-tab").addClass("btnRes");
+	});
+	$("#btnmas").click(function () {
+		$("#Vermas").slideDown(500, function () {
+			$("#btnmas").css("display", "none");
+		});
+	});
+	$("#btnmasMovil").click(function () {
+		$(".VermasMovil").slideDown(500, function () {
+			$("#btnmasMovil").css("display", "none");
+		});
+	});
+
+	$("#responsables").click(function () {
+		$("#slideResponsa").slideDown(500);
+	});
 	$(".causa").mouseenter(function () {
-		$(".causa").slideUp(500,function(){
+		$(".causa").slideUp(500, function () {
 			$(".causaDetalle").slideDown(500);
 		});
 	});
@@ -22,9 +47,9 @@ $(document).ready(function () {
 		});
 	});
 	$(".clickMovil").click(function () {
-		window.location.href="causas.php";
+		window.location.href = "causas.php";
 	});
-	
+
 	$(window).scroll(function () {
 		if ($(window).scrollTop() > 100) {
 			$("#navsticky").attr("class", "w-100 navbar sticky-top navbar-expand-lg px-5");
@@ -36,14 +61,9 @@ $(document).ready(function () {
 		}
 	});
 
-	function saludo () {
-		//alert("entro");
-		$.post("./assest/php/mostrar.php", {},
-			function (data) {
-				$("#mensaje").append(data);
-			}
-		);
-	}
+	function testAnim(x) {
+		$('.modal .modal-dialog').attr('class', 'modal-dialog  modal-dialog-centered  ' + x + ' animated');
+	};
 
 	function testAnim(x) {
 		$('.modal .modal-dialog').attr('class', 'modal-dialog  modal-dialog-centered  ' + x + ' animated');
@@ -52,6 +72,7 @@ $(document).ready(function () {
 		var anim = "zoomIn";
 		testAnim(anim);
 	});
+
 	$('#myModal').on('hide.bs.modal', function (e) {
 		var anim = "rollOut";
 		testAnim(anim);

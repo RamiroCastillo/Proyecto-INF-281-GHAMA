@@ -1,4 +1,6 @@
 <?php
+header('Cache-Control: no cache'); //no cache
+//session_cache_limiter('private_no_expire'); // works
 //ob_start();
 session_start();
 require_once('assest/php/Database.php');
@@ -254,7 +256,7 @@ $tema = mysqli_fetch_array($respuesta);
                         <div id="causas" class="carousel slide mxcausas" data-ride="carousel" data-interval="false">
                             <div class="carousel-inner">
                                 <?php
-                                $consulta = "SELECT * FROM causa"; //WHERE nombre like '$nombre%'
+                                $consulta = "SELECT * FROM problematica as p,causa as c where p.idProblematica = c.idProblematica and p.idTema = $idTema"; //WHERE nombre like '$nombre%'
                                 $respuesta = mysqli_query($con, $consulta) or die(mysql_error());
 
                                 $total = mysqli_num_rows($respuesta);
@@ -282,7 +284,8 @@ $tema = mysqli_fetch_array($respuesta);
                                     </div>
                                     <div class="card cardCF causaDetalle w-100 " style="display: none;">
                                         <div class="card-body text-center mt-5">
-                                            <a href="#" class="btnCausaVerMas mt-5">VER MAS</a>
+                                            <a href="causas.php?temaP=<?= $tema['tema']; ?>&nrotema=<?= $idTema;?>"
+                                                class="btnCausaVerMas mt-5">VER MAS</a>
                                         </div>
                                     </div>
                                 </div>
@@ -303,7 +306,8 @@ $tema = mysqli_fetch_array($respuesta);
                                     <div class="card cardCF causaDetalle w-100 " style="display: none;">
                                         <div class="card-body text-center mt-5">
 
-                                            <a href="#" class="btnCausaVerMas mt-5">VER MAS</a>
+                                            <a href="causas.php?temaP=<?= $tema['tema']; ?>&nrotema=<?=$idTema; ?>"
+                                                class="btnCausaVerMas mt-5">VER MAS</a>
                                         </div>
                                     </div>
                                 </div>
@@ -328,7 +332,7 @@ $tema = mysqli_fetch_array($respuesta);
                         <div id="consecuencias" class="carousel slide mxconsec" data-ride="carousel" data-interval="false">
                             <div class="carousel-inner">
                                 <?php
-                                $consulta = "SELECT * FROM consecuencia "; //WHERE nombre like '$nombre%'
+                                $consulta = "SELECT * FROM problematica as p,consecuencia as c where p.idProblematica = c.idProblematica and p.idTema = $idTema"; //WHERE nombre like '$nombre%'
                                 $respuesta = mysqli_query($con, $consulta) or die(mysql_error());
 
                                 $total = mysqli_num_rows($respuesta);
@@ -354,7 +358,7 @@ $tema = mysqli_fetch_array($respuesta);
                                     </div>
                                     <div class="card cardCF consecuenciaDetalle w-100 " style="display: none;">
                                         <div class="card-body text-center mt-5">
-                                            <a href="#" class="btnCausaVerMas mt-5">VER MAS</a>
+                                            <a href="consecuencias.php?nrotema=<?=$idTema;?>&temaP=<?=$tema['tema']; ?>" class="btnCausaVerMas mt-5">VER MAS</a>
                                         </div>
                                     </div>
                                 </div>
@@ -373,7 +377,7 @@ $tema = mysqli_fetch_array($respuesta);
                                     <div class="card cardCF consecuenciaDetalle w-100 " style="display: none;">
                                         <div class="card-body text-center mt-5">
 
-                                            <a href="#" class="btnCausaVerMas mt-5">VER MAS</a>
+                                            <a href="consecuencias.php?nrotema=<?=$idTema;?>&temaP=<?=$tema['tema'];?>" class="btnCausaVerMas mt-5">VER MAS</a>
                                         </div>
                                     </div>
                                 </div>
@@ -397,7 +401,7 @@ $tema = mysqli_fetch_array($respuesta);
                 </div>
                 <div class="row mt-5">
                     <div class="col-12 ">
-                        <img src="assest/images/arrowdown.svg" alt="" class="sizeArrow">
+                        <img src="assest/images/Flecha.svg" alt="" class="sizeArrow">
                     </div>
                 </div>
             </div>
@@ -405,6 +409,9 @@ $tema = mysqli_fetch_array($respuesta);
         </section>
         <section class="fondogris">
             <div clas="container">
+                <?php
+                    if($_SESSION['confC'] == 1){ 
+                        if ($_SESSION['confConsec'] == 1) {?>
                 <div class="row">
                     <div class="col-12 text-center">
                         <h2>Y que se puede hacer para prevenir y enfrentrar la inseguridad</h2>
@@ -420,9 +427,31 @@ $tema = mysqli_fetch_array($respuesta);
                             </div>
                         </div>
                     </div>
-                    
                 </div>
+                <?php    
+                        }else{?>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2>Aun debes ver a las CONSECUENCIAS del problema para combatirlo echale un vistaso</h2>
+                    </div>
+                </div>
+                <?php    
+                        }?>
 
+                <?php
+                    }else{
+                        if($_SESSION['confConsec'] == 1){?>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2>Aun debes ver a las CAUSAS del problema para combatirlo echale un vistaso</h2>
+                    </div>
+                </div>
+                <?php
+                        }?>
+
+                <?php    
+                    }
+                ?>
             </div>
 
         </section>

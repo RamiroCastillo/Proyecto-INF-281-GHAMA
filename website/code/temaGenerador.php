@@ -1,4 +1,6 @@
 <?php
+header('Cache-Control: no cache'); //no cache
+session_cache_limiter('private_no_expire'); // works
 //ob_start();
 session_start();
 require_once('assest/php/Database.php');
@@ -9,6 +11,7 @@ if (!isset($_SESSION['user'])) {
 }
 $db = Database::getInstance();
 $con = $db->getConnection();
+
 @mysql_query("SET NAMES 'utf8'");
 ?>
 <!DOCTYPE html>
@@ -251,7 +254,7 @@ $con = $db->getConnection();
                    <div class="col-10">
                        <div class="parrafConsejo">
                            <p class="mx-4 py-4">
-                           Si al llegar a su domicilio advierte la presencia de alguna persona sospechosa, tomar precauciones y solicitar apoyo de vecinos o de la policía.
+                           Si al llegar a su domicilio advierte la presencia de alguna persona sospechosa, tomar precauciones y solicitar apoyo de vecinos o de la policia.
                         </p>
                        </div>
                    </div>
